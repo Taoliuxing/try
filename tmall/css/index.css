@@ -1,3 +1,4 @@
+/* banner 开始 */
 .banner{
     background: #fe0036;
     height: 80px;
@@ -8,6 +9,8 @@
     margin: 0 auto;
     display: block;
 }
+/* banner 结束 */
+/* header 开始 */
 .header{
     height: 41px;
     background-color:#f63a00;
@@ -19,15 +22,13 @@
     height: 32px;
     margin: 0 auto;
 }
+/* header 结束 */
+/* header左开始 */
 .header-login{
     float: left;
 }
-.header-info{
-    float: right;
-}
-.header-info span{
-    margin-right: 16px;
-}
+
+
 .header-login span{
     margin-left: 0px;
 }
@@ -42,3 +43,27 @@
     margin-right:20px;
     line-height: 32px;
 }
+/* header左结束 */
+/*.header-info 开始*/
+.header-info{
+    float: right;
+}
+.header-info>ul>li{
+    float: left;
+    padding: 0px 14px 0px 10px;
+    position: relative;
+    cursor: pointer;
+}
+.header-info > ul > li > a{
+    color:#fff;
+}
+.header .arrow{
+    width: 0;
+    height: 0;
+    border:3px solid transparent;
+    border-top:3px solid #bbbbbb;
+    position: absolute;
+    right:5px;
+    top:16px;
+}
+/*.header-info 结束*/
