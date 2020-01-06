@@ -60,7 +60,7 @@
     border:1px solid #fff;
 }
 .header-info .main-menu{
-    border:1px solid #f63a00;
+    border:1px solid #d91e1c;
 }
 .header-info .main-menu:hover .list-menu{
     background: #ffffff;
@@ -153,3 +153,33 @@
     cursor: pointer;
 }
 /* search结束 */
+
+/* nav开始 */
+.nav .picture img{
+    width: 100px;
+    height: 30px;
+}
+.nav .picture a{
+    float: left;
+}
+.picture a:first-child{
+    margin-left: 200px;
+}
+.nav ul a{
+    color: #333;
+    font-size: 16px;
+    font-weight: 700;
+    padding: 0 8px;
+}
+.nav li{
+    float: left;
+    height: 35px;
+    line-height: 35px;
+}
+.nav li:hover a{
+    color: #fe0036;
+    text-decoration: none;
+}
+
+
+/* nav结束 */
