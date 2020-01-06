@@ -13,14 +13,9 @@
 /* header 开始 */
 .header{
     height: 41px;
-    background-color:#f63a00;
+    background-color:#d91e1c;
     /*border: 1px solid #e5e5e5;*/
     box-shadow: 0 2px 4px rgba(0,0,0,0.3);
-}
-.wrapper{
-    width: 1230px;
-    height: 32px;
-    margin: 0 auto;
 }
 /* header 结束 */
 /* header左开始 */
@@ -42,6 +37,10 @@
     margin-right:20px;
     line-height: 32px;
 }
+.menu-hover:hover a{
+    color: #ffe013;
+    text-decoration: none;
+}
 /* header左结束 */
 /*.header-info 开始*/
 .header-info{
@@ -56,6 +55,49 @@
 .header-info > ul > li > a{
     color:#fff;
 }
+.header-info .main-menu:hover{
+    background: #ffffff;
+    border:1px solid #fff;
+}
+.header-info .main-menu{
+    border:1px solid #f63a00;
+}
+.header-info .main-menu:hover .list-menu{
+    background: #ffffff;
+    display: block;
+
+}
+.header-info .main-menu:hover::after{
+    content: "";
+    display: block;
+    width: 100%;
+    height: 1px;
+    border: 1px solid #fff;
+    position: absolute;
+    top: 32px;
+    left: -1px;
+}
+.list-menu a{
+    color: #666;
+}
+.list-menu a:hover{
+    color: #ff0036;
+}
+.list-menu{
+    position: absolute;
+    width: 73px;
+    left: -1px;
+    top: 32px;
+    padding: 8px 10px;
+    border: 1px solid #fff;
+    display: none;
+}
+.header-info .main-menu:hover>a{
+    color: #ff0036;
+}
+.header .main-menu:hover .arrow{
+    transform: rotate(180deg);
+}
 .header .arrow{
     width: 0;
     height: 0;
@@ -64,5 +106,50 @@
     position: absolute;
     right:5px;
     top:16px;
+    transition: transform 0.3s ease;
+    transform-origin: 50% 25% ;
 }
 /*.header-info 结束*/
+/* search开始 */
+.logo{
+    float: left;
+    position: relative;
+    left: -45px;
+    top: 6px;
+
+}
+.search{
+    float: left;
+    margin-left: 30px;
+    width: 625px;
+    height: 40px;
+    border: 2px solid #ff0036;
+    margin-top: 40px;
+}
+.search input{
+    float: left;
+    width: 491px;
+    height: 29px;
+    border: none;
+    outline: none;
+    padding: 5px;
+    font-size: 16px;
+}
+.search button{
+    width: 124px;
+    height: 40px;
+    background: #ff0036;
+    text-align: center;
+    line-height: 40px;
+    border:none;
+    color: #fff;
+    font-size: 18px;
+    float: left;
+    font-weight: 700;
+    /* 字符之间空隙 */
+    letter-spacing: 5px;
+}
+.search button:hover{
+    cursor: pointer;
+}
+/* search结束 */
