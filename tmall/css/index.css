@@ -183,3 +183,66 @@
 
 
 /* nav结束 */
+
+/* 轮播图开始 */
+body{
+    background: url(../images/bg.png) center 83px no-repeat;
+}
+.slider{
+    height: 300px;
+    position: relative;
+    background: #eeeeee;
+}
+.category{
+    position: absolute;
+    width: 200px;
+    height: 520px;
+    left: 0px;
+    top: -35px;
+}
+.cate-title{
+    background: #eeeeee;
+    color: #DD2727;
+    height: 35px;
+    line-height: 35px;
+    font-size: 14px;
+    padding-left: 20px;
+}
+.cate-content{
+    background: rgba(0,0,0,.55);
+}
+.cate-list{
+    margin-bottom: 5px;
+}
+.cate-list > a:hover{
+    text-decoration: none;
+}
+.cate-list > span{
+    color: #fff;
+    opacity: 0.5;
+    margin:0 10px 0 20px;
+}
+.slider .category li{
+    height: 31px;
+    line-height:31px ;
+} 
+.slider .category li a{
+    height: 31px;
+    line-height: 31px;
+    font-size: 14px;
+    color: #eeeeee;
+}
+.slider .category li:hover{
+    background-color: #ffffff;
+}
+.slider .category li:hover a{
+    color: #e54077;
+}
+.slider .category li:hover span{
+    color: #e54077;
+}
+.slider-box img{
+    width: 1230px;
+    height: 500px;
+}
+/* 轮播图结束 */

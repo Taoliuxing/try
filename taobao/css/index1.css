@@ -1,0 +1,39 @@
+/* top开始 */
+.top{
+    background: #f5f5f5;
+}
+.wrapper{
+    height: 35px;
+}
+.top-left{
+    line-height: 35px;
+}
+.top a{
+    color:#6C6C6C;
+}
+.top .top-left-login{
+    color: #f22e00;
+    margin-right: 7px;
+    margin-left: 20px;
+}
+.top-left-regist{
+    margin-right: 16px;
+}
+.top-left li{
+    float: left; 
+
+}
+.position{
+    position: relative;
+    margin-right: 7px;
+}
+.top-left .arrow{
+    width: 0;
+    height: 0;
+    border: 3px solid transparent;
+    border-top: 3px solid #9c9c9c;
+    position: absolute;
+    left:59px;
+    top:16px;  
+}
+/* top结束 */
