@@ -189,7 +189,7 @@ body{
     background: url(../images/bg.png) center 83px no-repeat;
 }
 .slider{
-    height: 300px;
+    /* height: 300px; */
     position: relative;
     background: #eeeeee;
 }
@@ -249,6 +249,9 @@ body{
     width: 1230px;
     height: 500px;
 }
+.cate-list:hover .sub-category{
+    display: block;
+}
 .sub-category{
     background: #fff;
     position: absolute;
@@ -256,6 +259,132 @@ body{
     top:0px;
     height: 500px;
     width:852px;
-    /* display: none; */
+    display: none;
+}
+.cate-left{
+    width: 644px;
+    padding: 10px 20px;
+    box-sizing: border-box;
+    float: left;
+}
+.cate-left-content{
+    width: 500px;
+    float: left;
+    border-bottom: 1px dashed #eee;
+    padding-bottom: 7px;
+}
+.cate-left-title{
+    width: 104px;
+    float: left;
+    color: #333;
+    font-size: 14px;
+    font-weight: 700;
+}
+.cate-left .cate-row .cate-left-content a{
+    color:#666;
+    font-size: 14px;
+    margin-left:13px;
+    line-height: 22px;
+    height:22px;
+    float: left;
+}
+.cate-right{
+    width: 208px;
+    box-sizing: border-box;
+    float: left;
+}
+.cate-right-content{
+    background: #ffffff;
+}
+.cate-right-content a{
+    width: 50%;
+    float: left;
+    padding-right: 1px;
+    padding-bottom: 1px;
+    box-sizing: border-box;
+}
+.cate-right-content img{
+    width:100%;
+    display: block;
 }
 /* 轮播图结束 */
+
+/* 年货节开始 */
+.year-good{
+    height: 105px;
+    text-align: center;
+    cursor: pointer;
+}
+.year-good img{
+    width: 300px;
+    height: 65px;
+    margin-top: 20px;
+}
+.year-good-content{
+    height: 330px;
+}
+.year-good-list{
+    width: 610px;
+    height: 330px;
+    float: left;
+}
+.year-good-list:last-child{
+    margin-left: 10px;
+}
+.page-item-first{
+    width: 250px;
+    height: 330px;
+    text-align: center;
+    background: url(../images/goodbg.png);
+    border-radius: 5px ;
+    float: left;
+}
+.page-item-title1{
+    font-size: 24px;
+    font-weight: 700;
+    color: #ff520c;
+    padding-top: 32px;
+}
+.page-item-desc1{
+    font-size: 18px;
+    color: #ff520c;
+    margin-bottom: 20px;
+}
+.page-item-first img{
+    width: 180px;
+    height: 180px;
+}
+.page-item-second{
+    float: left;
+    margin-left: 10px;
+    width: 350px;
+    height: 160px;
+    background: url(../images/goodbg02.png) ;
+    border-radius: 5px ;  
+    position: relative;
+}
+.page-item-second:last-child{
+    margin-top: 10px;
+}
+.page-item-second img{
+    position: absolute;
+    width: 130px;
+    height: 130px;
+    top: 11px;
+    right: 26px;
+}
+.page-item-title2{
+    /* display: block; */
+    margin-left: 30px;
+    padding-top: 27px;
+    font-size: 24px;
+    font-weight: 700;
+    color: #ff0084;
+}
+.page-item-desc2{
+    /* display: block; */
+    margin-left: 30px;
+    font-size: 18px;
+    color: #ff0084;
+}
+/* 年货节结束 */
