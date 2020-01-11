@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // alert("第一个JS")
+        // var num = 10;
+        // var num1 = 20;
+        // var str="15"
+        // console.log(num+num1)
+        // console.log(num+str)
+        // console.log(num*str)
+        // var num2=window.prompt("请输入年龄")
+        // console.log(num2*12*30*24*60*60)
+        // document.write(num2*12*30*24*60*60)
+        // document.write(num)
+        // console.log(num2)
+        // for(var i=0;i<10;i++){
+        //     document.write(i+"<br>");
+        // }
+        // for(var i=0;i<10;i++){
+        //     alert(i)
+        var dog = {
+            name:'狗子',
+            age:3,
+            eat:function(){
+                console.log("正在吃饭");
+            }
+        }
+        console.log(Object.keys(dog));
+        for(var key in dog){
+            console.log(dog[key]);
+        }
+    </script>
+</body>
+</html>
