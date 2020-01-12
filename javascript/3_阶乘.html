@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function jc(n){
+            var result=1;
+            for(var i=1;i<=n;i++){
+                result *= i;
+            }
+            return result;
+        }
+        var sum=0;
+        for(var j=1;j<10;j++){
+            sum+= jc(j);
+        }
+        document.write(sum);
+    </script>
+</body>
+</html>
