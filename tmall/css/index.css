@@ -579,7 +579,7 @@ body{
     font-weight: 700px;
 }
 .guild-list{
-    width: 236px;
+    /* width: 236px; */
     height: 302px;
     float: left;
 }

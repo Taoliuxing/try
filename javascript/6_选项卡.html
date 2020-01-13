@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        #container{
+            width: 300px;
+            margin: 50px auto;
+            /* margin: 50px,auto; */
+        }
+        #list-top{
+            overflow: hidden;
+        }
+        #container li{
+            border: 1px solid #f00;
+            float: left;
+            margin-right: 5px;
+            width: 50px;
+            height: 50px;
+            text-align: center;
+            background: #008c8c;
+            line-height: 50px;
+        }
+        #container .list-top-one{
+            background: #00ff00;
+            color: beige;
+        }
+        #list-bottom div{
+            width: 300px;
+            height: 100px;
+            border: 1px solid #008c8c;
+            display: none;
+        }
+        #list-bottom .list-bottom-one{
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <ul id="list-top">
+            <li class="list-top-one">时事</li>
+            <li>体育</li>
+            <li>新闻</li>
+        </ul>
+        <div id="list-bottom">
+            <div class="list-bottom-one">111</div>
+            <div>222</div>
+            <div>333</div>
+        </div>
+    </div>
+    <script>
+        var oul=document.getElementById("list-top");
+        var ali=oul.getElementsByTagName("li");
+        for(var i=0;i<ali.length;i++){
+            ali[i].onclick = function(){
+                for(var j=0;j<ali.length;j++){
+                    ali[j].className="";
+                }
+                this.className="list-top-one";
+            }
+        }
+    
+    </script>
+</body>
+
+</html>
