@@ -62,12 +62,17 @@
     <script>
         var oul=document.getElementById("list-top");
         var ali=oul.getElementsByTagName("li");
+        var Odiv=document.getElementById("list-bottom");
+        var odiv=Odiv.getElementsByTagName("div");
         for(var i=0;i<ali.length;i++){
+            ali[i].index=i;
             ali[i].onclick = function(){
                 for(var j=0;j<ali.length;j++){
                     ali[j].className="";
+                    odiv[j].className="";
                 }
                 this.className="list-top-one";
+                odiv[this.index].className="list-bottom-one";
             }
         }
     
