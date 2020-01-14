@@ -106,6 +106,7 @@
         </div>
     </div>
     <script>
+        var oContainer = document.getElementById('container');
         var ulunbo = document.getElementById('lunbo');
         var uli = ulunbo.getElementsByTagName('li');
         var dchoice = document.getElementById('choice');
@@ -113,6 +114,7 @@
         var dchoice2 = document.getElementById('choice2');
         var ddiv2 = dchoice2.getElementsByTagName('button');
         var m = 0;
+        var timer;
         for (var i = 0; i < ddiv.length; i++) {
             ddiv[i].index = i;
             ddiv[i].onclick = function () {
@@ -142,10 +144,18 @@
             uli[idx].className = "lunbo-sucai";
             ddiv[idx].className = "choice-sz";
         }
-
-
-
-
+        run();
+        oContainer.onmouseover = function () {
+            clearInterval(timer);
+        }
+        oContainer.onmouseout = function () {
+            run();
+        }
+        function run(){
+            timer = setInterval(function () {
+                ddiv2[1].onclick();
+            }, 1500);
+        }
     </script>
 </body>
 
