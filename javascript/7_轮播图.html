@@ -48,8 +48,7 @@
             top: -30px;
         }
 
-        #choice div,
-        #choice2 div {
+        #choice div,#choice2 button {
             width: 20px;
             height: 20px;
             background: #8a8686;
@@ -101,8 +100,8 @@
             <div>5</div>
         </div>
         <div id="choice2">
-            <div>&lt;</div>
-            <div>&gt;</div>
+            <button>&lt;</button>
+            <button>&gt;</button>
         </div>
     </div>
     <script>
@@ -111,7 +110,7 @@
         var dchoice = document.getElementById('choice');
         var ddiv = dchoice.getElementsByTagName('div');
         var dchoice2 = document.getElementById('choice2');
-        var ddiv2 = dchoice2.getElementsByTagName('div');
+        var ddiv2 = dchoice2.getElementsByTagName('button');
         var m = 0;
         for (var i = 0; i < ddiv.length; i++) {
             ddiv[i].index = i;
@@ -125,31 +124,29 @@
                 m = this.index;
             }
         }
-        for (var i = 0; i < ddiv2.length; i++) {
-            ddiv2[0].onclick = function () {
-                for (var j = 0; j < ddiv.length; j++) {
-                    uli[j].className = "";
-                    ddiv[j].className = "";
-                }
-                m--;
-                if (m < 0) {
-                    m = 4;
-                }
-                uli[m].className = "lunbo-sucai";
-                ddiv[m].className = "choice-sz";
+        ddiv2[0].onclick = function () {
+            for (var j = 0; j < ddiv.length; j++) {
+                uli[j].className = "";
+                ddiv[j].className = "";
             }
-            ddiv2[1].onclick = function () {
-                for (var j = 0; j < ddiv.length; j++) {
-                    uli[j].className = "";
-                    ddiv[j].className = "";
-                }
-                m++;
-                if (m > 4) {
-                    m = 0;
-                }
-                uli[m].className = "lunbo-sucai";
-                ddiv[m].className = "choice-sz";
+            m--;
+            if (m < 0) {
+                m = 4;
             }
+            uli[m].className = "lunbo-sucai";
+            ddiv[m].className = "choice-sz";
+        }
+        ddiv2[1].onclick = function () {
+            for (var j = 0; j < ddiv.length; j++) {
+                uli[j].className = "";
+                ddiv[j].className = "";
+            }
+            m++;
+            if (m > 4) {
+                m = 0;
+            }
+            uli[m].className = "lunbo-sucai";
+            ddiv[m].className = "choice-sz";
         }
 
 
