@@ -48,7 +48,8 @@
             top: -30px;
         }
 
-        #choice div,#choice2 button {
+        #choice div,
+        #choice2 button {
             width: 20px;
             height: 20px;
             background: #8a8686;
@@ -115,38 +116,31 @@
         for (var i = 0; i < ddiv.length; i++) {
             ddiv[i].index = i;
             ddiv[i].onclick = function () {
-                for (var j = 0; j < ddiv.length; j++) {
-                    uli[j].className = "";
-                    ddiv[j].className = "";
-                }
-                this.className = "choice-sz";
-                uli[this.index].className = "lunbo-sucai";
+                change(this.index);
                 m = this.index;
             }
         }
         ddiv2[0].onclick = function () {
-            for (var j = 0; j < ddiv.length; j++) {
-                uli[j].className = "";
-                ddiv[j].className = "";
-            }
             m--;
             if (m < 0) {
                 m = 4;
             }
-            uli[m].className = "lunbo-sucai";
-            ddiv[m].className = "choice-sz";
+            change(m);
         }
         ddiv2[1].onclick = function () {
-            for (var j = 0; j < ddiv.length; j++) {
-                uli[j].className = "";
-                ddiv[j].className = "";
-            }
             m++;
             if (m > 4) {
                 m = 0;
             }
-            uli[m].className = "lunbo-sucai";
-            ddiv[m].className = "choice-sz";
+            change(m);
+        }
+        function change(idx) {
+            for (var j = 0; j < ddiv.length; j++) {
+                uli[j].className = "";
+                ddiv[j].className = "";
+            }
+            uli[idx].className = "lunbo-sucai";
+            ddiv[idx].className = "choice-sz";
         }
 
 
