@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #container {
+            width: 400px;
+            margin: 50px auto;
+            position: relative;
+        }
+
+        ul {
+            list-style: none;
+            position: relative;
+            width: 400px;
+            height: 200px;
+            overflow: hidden;
+        }
+
+        #lunbo img {
+            width: 400px;
+            height: 200px;
+        }
+
+        #lunbo li {
+            /* position: relative; */
+            float: left;
+        }
+
+        #lunbo .lunbo-sucai {
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        #choice {
+            position: relative;
+            right: -280px;
+            top: -30px;
+        }
+
+        #choice div,
+        #choice2 div {
+            width: 20px;
+            height: 20px;
+            background: #8a8686;
+            float: left;
+            line-height: 20px;
+            text-align: center;
+            /* border: 1px solid #8a8686;  */
+            margin-right: 1px;
+            border-radius: 5px;
+        }
+
+        #choice .choice-sz {
+            background: #00ff00;
+            color: aquamarine;
+        }
+
+        #choice2 {
+            position: absolute;
+            left: 20px;
+            bottom: 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <ul id="lunbo">
+            <li class="lunbo-sucai">
+                <img src="../tmall/images/logo.gif" alt="">
+            </li>
+            <li>
+                <img src="../tmall/images/brand02.jpg" alt="">
+            </li>
+            <li>
+                <img src="../tmall/images/brand03.jpg" alt="">
+            </li>
+            <li>
+                <img src="../tmall/images/brand1.webp" alt="">
+            </li>
+            <li>
+                <img src="../tmall/images/brand2.webp" alt="">
+            </li>
+        </ul>
+        <div id="choice">
+            <div class="choice-sz">1</div>
+            <div>2</div>
+            <div>3</div>
+            <div>4</div>
+            <div>5</div>
+        </div>
+        <div id="choice2">
+            <div>&lt;</div>
+            <div>&gt;</div>
+        </div>
+    </div>
+    <script>
+        var ulunbo = document.getElementById('lunbo');
+        var uli = ulunbo.getElementsByTagName('li');
+        var dchoice = document.getElementById('choice');
+        var ddiv = dchoice.getElementsByTagName('div');
+        var dchoice2 = document.getElementById('choice2');
+        var ddiv2 = dchoice2.getElementsByTagName('div');
+        var m = 0;
+        for (var i = 0; i < ddiv.length; i++) {
+            ddiv[i].index = i;
+            ddiv[i].onclick = function () {
+                for (var j = 0; j < ddiv.length; j++) {
+                    uli[j].className = "";
+                    ddiv[j].className = "";
+                }
+                this.className = "choice-sz";
+                uli[this.index].className = "lunbo-sucai";
+                m = this.index;
+            }
+        }
+        for (var i = 0; i < ddiv2.length; i++) {
+            ddiv2[0].onclick = function () {
+                for (var j = 0; j < ddiv.length; j++) {
+                    uli[j].className = "";
+                    ddiv[j].className = "";
+                }
+                m--;
+                if (m < 0) {
+                    m = 4;
+                }
+                uli[m].className = "lunbo-sucai";
+                ddiv[m].className = "choice-sz";
+            }
+            ddiv2[1].onclick = function () {
+                for (var j = 0; j < ddiv.length; j++) {
+                    uli[j].className = "";
+                    ddiv[j].className = "";
+                }
+                m++;
+                if (m > 4) {
+                    m = 0;
+                }
+                uli[m].className = "lunbo-sucai";
+                ddiv[m].className = "choice-sz";
+            }
+        }
+
+
+
+
+    </script>
+</body>
+
+</html>
