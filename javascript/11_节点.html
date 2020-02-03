@@ -11,8 +11,23 @@
         <li>111</li>
         <li></li>
     </ul>
+    <div id="div1">
+        <p id="p1">123213</p>
+        <span>222</span>
+    </div>
+    <!-- 
+        节点操作相关
+        1 createElement  创建元素
+        2 appendChild  插入元素,插入到父元素内部的后边
+        3 removeChild  删除节点 (通过父元素删除子元素 )
+        4 replaceChild (newNode,oldNode)  替换
+        5 insertBefore (newnode,refnode) 插入 某个节点之前插入
+        6 cloneNode() 克隆节点  使用参数true表示克隆节点时包含子节点
+     -->
     <script>
         var oUl = document.getElementById("ul1");
+        var oDiv1 = document.getElementById("div1");
+        var op = document.getElementById('p1');
         function first(elem){
             do{
                 elem = elem.firstChild;
@@ -20,6 +35,12 @@
             return elem; 
         }
         console.log( first(oUl) );
+        var oDiv2 = document.createElement('div');
+        oDiv2.innerHTML = "aasdasd";
+        oDiv1.appendChild(oDiv2);
+        // oDiv1.removeChild(op);
+        var op1 = op.cloneNode(true);
+        oDiv1.appendChild(op1)
     </script>
 </body>
 </html>
