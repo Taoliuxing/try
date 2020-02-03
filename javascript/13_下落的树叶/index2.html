@@ -37,7 +37,7 @@
             setTimeout(function(){
                 that.timer = setInterval(function(){
                 if(that.img.offsetTop > screenHeight - that.img.offsetHeight){
-                    clearInterval(timer)
+                    clearInterval(that.timer)
                 }else{
                     that.img.style.top = that.speed + that.img.offsetTop + "px";
                 }
