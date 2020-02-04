@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        /* #div1 > p{
+            color: aqua;
+        }
+        #p1 + p{
+            color: red;
+        } 
+        #p2 ~ p{
+            color: blueviolet;
+        } */
+        div[id]{
+            color: aqua;
+        }
+        div[class^=a]{    
+            background: #00ff00;
+        }
+        div[class$=x]{
+            background: #00fff0;
+        }
+        div[class*=s]{       
+            background: #00ff00;
+        }
+        input:checked + span{
+            color:red ;
+        }
+        #div4::after{
+            content: "aaaaaddddd";
+        }
+        #div4::before{
+            content: "aaaaaddddd";
+        }
+    </style>
+</head>
+<body>
+    <div id="div1">
+        <p>111</p>
+        <p>222</p>
+        <p>333</p>
+    </div>
+    <div class="abc">555</div>
+    <div class="bbx">555</div>
+    <div class="cbs">555</div>
+    <input type="radio" name="sex"><span>男</span>
+    <input type="radio" name="sex"><span>女</span>
+    <div id="div4">
+        aaaaaaaaa
+    </div>
+    <!-- <div id="div1">
+        <p>111</p>
+        <p>222</p>
+        <p>333</p>
+    </div>
+    <div id="div2">
+        <p id="p1">444</p>
+        <p>555</p>
+        <p>666</p>
+    </div>
+    <div id="div3">
+        <p id="p2">444</p>
+        <p>555</p>
+        <p>666</p> -->
+    </div>
+</body>
+</html>
