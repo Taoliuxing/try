@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #div1{
+            /* width: 500px; */
+            height: 400px;
+            background: #0000ff;
+            /* 弹性盒模型属性 */
+            display: flex;
+        }
+        #div2{
+            height: 400px;
+            width: 200px;
+            background: #0f0;
+            margin-right: 10px;
+        }
+        #div3{
+            height: 400px;
+            background: #008c8c;
+            /* 占剩余份数的几份 */
+            flex: 1;
+        }
+    </style>
+</head>
+<body>
+     <!-- 
+        弹性盒模型 
+            父元素 
+                display:flex
+                flex-direction:row |row-reverse |column |column-reverse
+                align-items: 垂直对齐方法 
+                    flex-start(居上) | flex-end(居下) | center（居中） | baseline (基线对齐) | stretch（拉伸）
+                justify-content 水平对齐方式 
+                    flex-start（居左） | flex-end(居右) | center（居中） | space-between | space-around
+            子元素flex:份数 
+     -->
+     <!-- 
+         左侧固定 右侧自适应 
+            1 弹性盒模型 
+                父元素display:flex
+                子元素左侧宽度固定 + 10margin
+                右侧flex:1占剩余宽度的1份
+            2 左侧浮动  右侧margin-left:210px 
+            3 左侧定位absolute  右侧margin-left:210px 
+            4 右侧元素margin-top  margin-left  移动 
+         -->
+    <div id="div1">
+        <div id="div2"></div>
+        <div id="div3"></div>
+    </div>
+</body>
+</html>
