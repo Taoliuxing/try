@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background: url(img/bg.jpg);
+        }
+
+        .item {
+            width: 125px;
+            height: 125px;
+            border: 5px solid #ffffff;
+            position: absolute;
+            left: -135px;
+            top: -135px;
+            transition: all 1.5s ease;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+
+    </div>
+    <script>
+        var oContainer = document.getElementById('container');
+        var count = 0;   //计数 看所有图片是否都加载完毕
+        //生成24张小图
+        for (var i = 0; i < 24; i++) {
+            var oImg = new Image();
+            oImg.onload = function () {   //加载
+                count++;
+                if (count == 48) {
+                    success();
+                }
+            }
+            oImg.src = "img/thumbs/" + (i + 1) + ".jpg";
+        }
+        //生成24张大图
+        for (var i = 0; i < 24; i++) {
+            var oImg = new Image();
+            oImg.onload = function () {   //加载
+                count++;
+                if (count == 48) {
+                    success();
+                }
+            }
+            oImg.src = "img/" + (i + 1) + ".jpg";
+        }
+        
+        function success() { 
+             //判断成功
+            console.log('ok');
+            var index = 0;
+            for (var i = 0; i < 4; i++) {
+                for (var j = 0; j < 6; j++) {
+                    var oDiv = document.createElement('div');
+                    oDiv.className = "item";
+                    index++;
+                    oDiv.style.background = "url(img/thumbs/" + (index) + ".jpg) 0 0 no-repeat";
+                    oDiv.onclick = fn;
+                    //记录行列
+                    oDiv.row = i;
+                    oDiv.col = j;
+                    oContainer.appendChild(oDiv);
+                }
+            }
+        var screenWidth = document.documentElement.clientWidth || document.body.clientWidth;
+        var screenHeight = document.documentElement.clientHeight || document.body.clientHeight;
+        var spaceX = (screenWidth - 135 * 6) / 7;
+        var spaceY = (screenHeight - 135 * 4) / 5;
+        var aDiv = oContainer.getElementsByTagName('div');
+        var divWidth = aDiv[0].offsetWidth;
+        var divHeight = aDiv[0].offsetHeight;
+        for (var i = 0; i < aDiv.length; i++) {
+            var row = aDiv[i].row;
+            var col = aDiv[i].col;
+            aDiv[i].style.transitionDelay = (23 - i) * 100 + "ms";
+            aDiv[i].style.left = (col + 1) * spaceX + col * divWidth + "px";
+            aDiv[i].style.top = (row + 1) * spaceY + row * divHeight + "px";
+            aDiv[i].style.transform = "rotate(" + (Math.random() * 40 - 20) + "deg)";
+        }
+
+        var iLeft = (screenWidth - 127 * 6) / 2;
+        var iTop = (screenHeight - 127 * 4) / 2;
+        function fn() {
+            for (var i = 0; i < aDiv.length; i++) {
+                var iDiv = aDiv[i];
+                iDiv.style.transitionDelay = "0ms";
+                var col = aDiv[i].col;
+                var row = aDiv[i].row;
+                iDiv.style.left = iLeft + col * 127 + "px";
+                iDiv.style.top = iTop + row * 127 + "px";
+                iDiv.style.transform = "rotate(0deg)";
+                iDiv.style.borderWidth = "1px";
+            }
+        }
+        }
+       
+    </script>
+</body>
+
+</html>
