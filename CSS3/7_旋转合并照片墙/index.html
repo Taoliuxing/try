@@ -32,7 +32,8 @@
             display: none;
             background: #00ff00;
         }
-        #next{
+
+        #next {
             position: absolute;
             width: 40px;
             height: 80px;
@@ -46,7 +47,8 @@
             cursor: pointer;
             display: none;
         }
-        #pre{
+
+        #pre {
             position: absolute;
             width: 40px;
             height: 80px;
@@ -168,33 +170,33 @@
                         dDiv.style.transform = "rotate(" + (Math.random() * 40 - 20) + "deg)";
                         var iSpan = dDiv.getElementsByTagName('span')[0];
                         iSpan.style.display = "none";
-                        dDiv.style.borderWidth = 5+ "px";
+                        dDiv.style.borderWidth = 5 + "px";
                     }
                     oNext.style.display = "none";
                     oPre.style.display = "none";
                 }
                 flag = !flag;
             }
-            oNext.onclick = function(){
+            oNext.onclick = function () {
                 iNow++;
-                if(iNow > 24){
-                    iNow = 1; 
+                if (iNow > 24) {
+                    iNow = 1;
                 }
-                for(var i=0;i<aDiv.length;i++){
+                for (var i = 0; i < aDiv.length; i++) {
                     var oSpan = aDiv[i].getElementsByTagName('span')[0];
-                    oSpan.style.backgroundImage = "url(img/"+ iNow +".jpg)";
-                    oSpan.style.transitionDelay = Math.random()*500 + "ms";
+                    oSpan.style.backgroundImage = "url(img/" + iNow + ".jpg)";
+                    oSpan.style.transitionDelay = Math.random() * 500 + "ms";
                 }
             }
-            oPre.onclick = function(){
+            oPre.onclick = function () {
                 iNow--;
-                if(iNow < 1 ){
-                    iNow = 24; 
+                if (iNow < 1) {
+                    iNow = 24;
                 }
-                for(var i=0;i<aDiv.length;i++){
+                for (var i = 0; i < aDiv.length; i++) {
                     var oSpan = aDiv[i].getElementsByTagName('span')[0];
-                    oSpan.style.backgroundImage = "url(img/"+ iNow +".jpg)";
-                    oSpan.style.transitionDelay = Math.random()*500 + "ms";
+                    oSpan.style.backgroundImage = "url(img/" + iNow + ".jpg)";
+                    oSpan.style.transitionDelay = Math.random() * 500 + "ms";
                 }
             }
         }
