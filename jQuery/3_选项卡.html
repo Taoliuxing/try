@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        ul{
+            list-style: none;
+        }
+        #container{
+            width: 600px;
+            height: 450px;
+            margin: 50px auto;
+            /* background: #000; */
+            position: relative;
+            overflow: hidden;
+        }
+        #container li{
+            width: 198px;
+            height: 50px;
+            border: 1px solid #008c8c;
+            float: left;
+            text-align: center;
+            line-height: 50px;
+            background: pink;
+            cursor: pointer;
+            font-weight: 700px;
+            font-weight: 20px;
+        }
+        #container .list-one{
+            background: palevioletred;
+        }
+        #text div{
+            width: 598px;
+            height: 448px;
+            border: 1px solid #008c8c;
+            text-align: center;
+            line-height: 448px;
+            display: none;
+        }
+        #text .text-one{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="list">
+            <ul>
+                <li class="list-one">娱乐</li>
+                <li>新闻</li>
+                <li>体育</li>
+            </ul>
+        </div>
+        <div id="text">
+            <div class="text-one">111aaaaaaaaaaaaaaaaaaaaa</div>
+            <div>222aaaaaaaaaaaaaaaaaaaaa</div>
+            <div>333aaaaaaaaaaaaaaaaaaaaa</div>
+        </div>
+    </div>
+    <script src="jquery-1.12.4.js"></script>
+    <script>
+        $("#list li").on('click',function(){
+            $(this).addClass('list-one').siblings().removeClass('list-one');
+            var idx = $(this).index();
+            $("#text").children().eq(idx).addClass('text-one').siblings().removeClass('text-one');
+        })
+    </script>
+</body>
+</html>

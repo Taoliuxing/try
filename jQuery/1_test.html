@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="div1">
+        1111111
+    </div>
+    <ul>
+        <li id="li1">1112</li>
+        <li>2223</li>
+        <li>3334</li>
+        <li>4445</li>
+        <li>5556</li>
+    </ul>
+    <script src="jquery-1.12.4.js"></script>
+    <script>
+        var oDiv = document.getElementById('div1');
+        var oLi = document.getElementById('li1');
+
+        var adiv = $("#div1");
+
+        console.log(adiv);
+        console.log(oDiv.innerHTML);
+        console.log(adiv.html());
+        console.log($(oLi).siblings());
+    </script>
+</body>
+</html>
