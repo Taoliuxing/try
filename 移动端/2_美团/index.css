@@ -5,6 +5,7 @@
 body{
     font-size:.28em;
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    background: #f0efed;
 }
 /* header开始 */
 header{
@@ -85,3 +86,65 @@ header{
     margin-top: 0.05rem;
 }
 /* nav结束 */
+
+/* list开始 */
+.list{
+    display: flex;
+    flex-wrap: wrap; 
+    list-style: none;
+    border-bottom: 1px solid #DDDBCE;
+    background: #FFFFFF;
+}
+.list li{
+    width: 20%;
+    height: 1.62rem;
+    padding: 0.2rem 0;
+    box-sizing: border-box;
+}
+.list span{
+    display: block;
+    width: 0.8rem;
+    height: 0.8rem;
+    border-radius: 0.4rem;
+    margin: 0 auto;
+    line-height: 0.8rem;
+}
+.list p{
+    text-align: center;
+    font-size: .24rem;
+    color: #666;
+    margin-top: 0.1rem;
+}
+.list-food span{
+    background: #fd9d21;
+    text-align: center;
+}
+.list-movie span{
+    background: #ff6767;
+}
+.list-hotel span{
+    background: #8a90fa;
+}
+.list-relax span{
+    background: #fed030;
+}
+.list-out span{
+    background: #fd9d21;
+}
+.list-ktv span{
+    background: #fed030;
+}
+.list-travel span{
+    background: #4dc6ee;
+}
+.list-beauty span{
+    background: #ff80c2;
+}
+.list-snack span{
+    background: #fd9d21;
+}
+.list-all span{
+    background: #00d3be;
+}
+/* list结束 */
+
