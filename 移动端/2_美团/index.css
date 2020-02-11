@@ -1,0 +1,87 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    font-size:.28em;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+/* header开始 */
+header{
+    width: 6.4rem;
+    height: 1rem;
+    background: #FFD000;
+    display: flex;
+}
+.header-position{
+    width: 1.8rem;
+    height: 1rem;
+}
+.header-position span{
+    display: block;
+    font-family: PingFangSC-Medium;
+    font-size: 0.28rem;
+    color: #222222;
+    line-height: 1rem;
+    text-align: center;
+    margin: 0 auto;
+}
+.header-find{
+    box-sizing: border-box;
+    width: 3.64rem;
+    height: 0.64rem;
+    line-height: 0.64rem;
+    margin-top: 0.2rem;
+    border-radius: 0.15rem;
+    opacity: 0.9;
+    color: #999;
+    text-decoration: none;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding-left: 0.35rem;
+    background:#FFFFFF url(images/99c29829cf1b85d5cdbc76a1bd0b7329814.png) 0 0.18rem no-repeat;
+    background-size: 0.28rem 0.28rem;
+}
+.header-icon{
+    text-align: center;
+    width: 0.94rem;
+    height: 100%;
+}
+.header-icon img{
+    width: 0.6rem;
+    height: 0.6rem;
+    margin-top: 0.2rem;
+}  
+/* header结束 */
+
+/* nav开始 */
+.nav{
+    display: flex;
+    /* width: 6.4rem; */
+    height: 1.04rem;
+    box-sizing: border-box;
+    padding: 0.16rem;
+    background: #000000;
+}
+.nav-img img{
+    width: 0.72rem;
+    height: 0.72rem;
+    margin-right: 0.2rem;
+}
+.nav-txt{
+    color: #fff;
+    font-size: 0.24rem;
+    flex: 1;
+}
+.nav-go{
+    text-decoration: none;
+    width: 1.1rem;
+    height: 0.6rem;
+    background: #FFD000;
+    border-radius: 0.1rem;
+    text-align: center;
+    line-height: 0.6rem;
+    margin-top: 0.05rem;
+}
+/* nav结束 */
