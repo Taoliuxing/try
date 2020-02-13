@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>照片墙</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            touch-action: none;
+        }
+        #small-img{
+            display: flex;
+            flex-wrap: wrap;
+        }
+        #small-img img{
+            width: 25%;
+            display: block;
+            box-sizing: border-box;
+            border-bottom: 1px solid #000;
+            border-right: 1px solid #000;
+        }
+        #big-img{
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            background:#000000 url(img/1.jpg) center center no-repeat;
+            background-size: contain;
+            display: none;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="small-img"></div>
+    <div id="big-img">
+    </div>
+    <script src="./3_JS/zepto.js"></script>
+    <script src="./3_JS/touch.js"></script>
+    <script>
+        var iNow;
+        for(var i=0;i<24;i++){
+            $('#small-img').append("<img src='img/thumbs/"+(i+1)+".jpg'>");
+        }
+        $('#small-img img').on('click',function(){
+            $('#big-img').show();
+            iNow = $(this).index();
+            $('#big-img').css("background-image","url(img/"+($(this).index()+1)+".jpg)")
+        })
+        $('#big-img').on('click',function(){
+            $('#big-img').hide();
+        }).on('swipeLeft',function(){
+            iNow++;
+            if(iNow == $('#small-img img').length){
+                iNow=0;
+            }
+            $('#big-img').css("background-image","url(img/"+(iNow+1)+".jpg)")
+        }).on('swipeRight',function(){
+            iNow--;
+            if(iNow < 0){
+                iNow=$('#small-img img').length-1;
+            }
+            $('#big-img').css("background-image","url(img/"+(iNow+1)+".jpg)")
+        })
+    </script>
+</body>
+</html>

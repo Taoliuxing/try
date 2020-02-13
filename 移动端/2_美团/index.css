@@ -108,6 +108,9 @@ header{
     border-radius: 0.4rem;
     margin: 0 auto;
     line-height: 0.8rem;
+    text-align: center;
+    font-size: 0.55rem;
+    color: #FFFFFF;
 }
 .list p{
     text-align: center;
@@ -117,7 +120,6 @@ header{
 }
 .list-food span{
     background: #fd9d21;
-    text-align: center;
 }
 .list-movie span{
     background: #ff6767;
@@ -147,4 +149,9 @@ header{
     background: #00d3be;
 }
 /* list结束 */
+
+/* like开始 */
+
+
+/* like结束 */
 
