@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            //数组去重
+            let arr1 = [1,2,2,3,4,4,5,6,7,8,4,9,3];
+            let arr2 = new Set(arr1);  //set参数只能为数组或类数组
+            console.log(arr2)
+        */
+
+         // 数组去重2 利用对象的属性不能相同的特点 进行去重
+         let arr = [1,2,4,5,4,3,5,6,7];
+         function fn(){
+            let obj = {};
+            let result = [];
+            for(var i=0;i<arr.length;i++){
+                if(!obj[arr[i]]){
+                    obj[arr[i]] = 1;
+                    result.push(arr[i]);
+                }else{
+                    obj[arr[i]]++;
+                }
+            }
+            return result;
+         }
+         console.log( fn( arr ) );
+
+    </script>
+</body>
+</html>

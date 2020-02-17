@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>1111</li>
+        <li>2222</li>
+        <li>3333</li>
+    </ul>
+    <script>
+        var oLi = document.getElementsByTagName('li');
+        for(var i=0;i<oLi.length;i++){
+            oLi[i].onclick = function(){
+                setTimeout(()=>{
+                    console.log(this.innerHTML);
+                },1000)
+            }
+        }
+        // var oLi = document.getElementsByTagName('li');
+        // for(var i=0;i<oLi.length;i++){
+        //     oLi[i].onclick = function(){
+        //         setTimeout(function(){
+        //             console.log(this.innerHTML);
+        //         }.bind(this),1000)
+        //     }
+        // }
+    </script>
+</body>
+</html>

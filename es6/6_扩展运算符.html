@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>111</li>
+        <li>222</li>
+        <li>333</li>
+    </ul>
+    <!-- 扩展运算符... 
+        rest运算符
+    -->
+    <script>
+        var oLi = document.getElementsByTagName('li');
+        /* 
+            //复制数组
+            let arr = [1,2,3];
+            let arr1 = [...arr];
+            console.log(arr1);
+        */
+
+        /*
+            //合并数组
+            let arr2 = [1,2,3,4];
+            let arr3 = [5,6,7,8];
+            let arr4 = [...arr2,...arr3];
+            console.log(arr4);
+        */
+
+         /*
+            // oLi  类数组(不是真正的数组)  有数组的length属性 for循环去循环，但是没有数组下的方法（push pop concat....）
+            // 类数组->转成数组
+            let arr5 = [...oLi];
+            console.log(arr5)
+         */
+
+         function fn(x,y,...rest){
+             console.log(arguments);//输出全部参数
+             console.log(...rest);//输出剩余参数
+         }
+         fn(1,2,3,4,7)
+    </script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Person{
+            constructor(name,age){
+                this.name = name;
+                this.age = age;
+            }
+            say(){
+                console.log('Mamba out');
+            }
+            static spirit(){
+                console.log('forever');
+            }
+        }
+        class Player extends Person{
+            constructor(name,age,team){
+                super(name,age);
+                this.team = team;
+            }
+        }
+        let p1 = new Player('Kobe',41,'Lakers');
+        console.log(p1);
+        p1.say();
+        Player.spirit();
+    </script>
+</body>
+</html>

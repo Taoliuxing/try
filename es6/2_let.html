@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>let</title>
+</head>
+<body>
+    <!-- 
+        let 和var的区别
+            1 let没有变量提升
+            2 let不能重复声明 
+            3 块级作用域
+            4 暂时性死区 临时失效区
+
+     -->
+    <script>
+        /*  
+            var 声明的变量会发生 变量提升
+            var定义的变量 相当于在当前作用域的最上边定义了变量，但是没有赋值
+
+        */
+        // var a;
+        // console.log(a);
+
+        // var a = 10;
+        // console.log(b);  //undefined ->变量提升 
+        // var b = 20;
+
+        // console.log(x);
+        // let x = 10;
+
+        // 2 let不能重复声明 
+        /*  
+            let c = 10;
+            let c = 20;
+            console.log(c);
+        */
+
+        // 3 let定义的变量 有块级作用域 
+
+        // function a(){
+        //     var x = 100;  //局部变量 
+        //     console.log(x);//100
+        // }
+
+        // a();
+        // console.log(x); // x is not defined
+        
+        // var m = true;
+        if(m){
+            let n = 100;
+        }
+        // console.log(n); //n is not defined
+
+        // 4 临时失效区  暂时性死区 当前作用域内不允许同名的变量进来 
+        
+            var p = 10;
+            function fn(){
+                var p;
+                console.log(p);  //undefined
+                var p = 20;
+                console.log(p);  //20
+            }
+            fn();
+        
+
+        var p = 10;
+        function fn(){
+            console.log(p);  //报错
+            let p = 20; //1 let定义的变量不能提升 2当前作用域内跟他同名的变量进不来
+            console.log(p);  //20
+        }
+        fn(); 
+    </script>
+    
+</body>
+</html>
