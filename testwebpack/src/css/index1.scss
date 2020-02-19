@@ -1,0 +1,11 @@
+$color:pink;
+body{
+    background:$color;
+}
+div{
+    width: 200px;
+    height: 200px;
+    background: green;
+    box-shadow: 3px 3px 3px 3px rgba(40,60,40,0.5);   
+    transform: translate(50px,50px); 
+}
