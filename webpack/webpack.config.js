@@ -2,16 +2,14 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const {CleanWebpackPlugin} = require("clean-webpack-plugin");
+const webpack = require("webpack");
+const output = require("./webpack.output.js");
 module.exports = {
     mode: "development",
     // 入口文件 
     entry: "./src/index.js",
     // 出口文件 打包到哪
-    output: {
-        filename: "main.js",
-        // path是绝对路径 
-        path: path.resolve(__dirname, "dist")
-    },
+    output: output,
     module: {
         rules: [
             {
@@ -39,6 +37,14 @@ module.exports = {
                     "css-loader",
                     "sass-loader"
                 ]
+            },
+            {
+                test:/\.js$/,
+                loader: "babel-loader",
+                options:{
+                    presets:["@babel/preset-env"]
+                },
+                exclude: /node_modules/
             }
         ]
     },
@@ -46,10 +52,13 @@ module.exports = {
         new HtmlWebpackPlugin({
             template:"./src/index.html"
         }),
-        new CleanWebpackPlugin()
+        new CleanWebpackPlugin(),
+        new webpack.BannerPlugin("刘兴韬")
     ],
     devServer:{
         contentBase:path.resolve(__dirname,"dist"),
-        host:'localhost'
+        host:'localhost',
+        open:true
+
     }
 }
