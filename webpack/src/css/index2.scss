@@ -1,10 +1,14 @@
-$color:#0ad;
+$color:#13aa33;
+*{
+    padding: 0;
+    margin: 0;
+}
 body{
     background: $color;
 }
 div{
     width: 100px;
     height: 100px;
-    background: red;
+    background: #000;
     transform: translate(100px,100px);
 }
