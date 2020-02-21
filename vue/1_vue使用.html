@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="div1">
+        <span v-text="xx"></span>
+        <span v-html="xx"></span>
+        {{year}}
+        {{mouth}}
+        {{data}}
+        <hr>
+        <ul>
+            <li v-for="val in arr">{{val}}</li>
+        </ul>
+        <button @click="fn()">click</button>
+    </div>
+    
+    <script src="vue.js"></script>
+    <script>
+        let vm = new Vue({
+            el:"#div1",
+            data:{
+                xx:"<h2>这是标题</h2>",
+                year:2000,
+                mouth:6,
+                data:26,
+                arr:["男","巨蟹","19"]
+            },
+            methods:{
+                fn(){
+                    console.log(this.arr);
+                }
+            }
+        })
+    </script>
+</body>
+</html>

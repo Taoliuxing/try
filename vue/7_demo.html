@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .bs{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="demo">
+        <input type="text" v-model="myValue">
+        <button @click="add()">add</button>
+        <ul>
+            <li v-for="(obj,index) in list" @click="change(obj)" :class="{bs:obj.isClick}">
+                {{obj.name}}
+                <button @click.stop="delet(index)">del</button>
+            </li>
+        </ul>
+    </div>
+    <script src="vue.js"></script>
+    <script>
+        new Vue({
+            el:"#demo",
+            data:{
+                list:[
+                    {
+                        name:"吃饭",
+                        isClick:false
+                    },
+                    {
+                        name:"吃饭",
+                        isClick:false
+                    }
+                ],
+                myValue:""
+            },
+            methods:{
+                add(){
+                    this.list.push({
+                        name:this.myValue,
+                        isClick:false
+                    })
+                },
+                change(obj){
+                    obj.isClick = !obj.isClick
+                },
+                delet(index){
+                    this.list.splice(index,1)
+                }
+            }
+        })
+    </script>
+</body>
+</html>

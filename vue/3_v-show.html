@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .div1{
+            width: 200px;
+            height: 200px;
+            background: #ff0000;
+        }
+        .div2{
+            width: 200px;
+            height: 200px;
+            background: #00ff00;
+        }
+    </style>
+</head>
+<body>
+     <!-- 
+        v-show 控制元素的display :none  频繁切换
+        v-if 不是频繁
+     -->
+    <div id="show">
+        <button @click="fn()">click</button>
+        <!-- <div class="div1" v-show="isShow"></div> -->
+        <div class="div1" v-if="isShow"></div>
+        <div class="div2" v-else></div>
+    </div>
+    <script src="vue.js"></script>
+    <script>
+        new Vue({
+            el:'#show',
+            data:{
+                isShow : true
+            },
+            methods:{
+                fn(){
+                    this.isShow = !this.isShow;
+                }
+            }
+        })
+    </script>
+</body>
+</html>

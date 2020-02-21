@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .a{
+            background: #ff0000;
+        }
+        .b{
+            border:5px solid #000;
+        }
+        .c{
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <div id="vue">
+        <!-- v-bind:class   简写成  :class -->
+        <div :id="myId"></div>
+        <div :class="{a:isA,b:isB,c:isC}">asdasdasdasd</div>
+        <div :class="[classA,classB,classC]">asdasdasdasd</div>
+        <!-- <div style="width:100px; height:200px"></div> -->
+        <!-- style数组 -->
+        <h2 :style="[styleA,styleB]">hahahahha</h2>
+        <!-- style 对象 -->
+        <h2 :style="styleObject">heheheheh</h2>
+    </div>
+    <script src="vue.js"></script>
+    <script>
+        new Vue({
+            el:"#vue",
+            data:{
+                isA:true,
+                isB:true,
+                isC:false,
+                classA:'a',
+                classB:'b',
+                classC:'c',
+                styleA:{
+                    width:"200px"
+                },
+                styleB:{
+                    height:"300px"
+                },
+                styleObject:{
+                    width:"300px",
+                    height:"300px",
+                    background:"#f00"
+                }
+            }
+        })
+    </script>
+</body>
+</html>
