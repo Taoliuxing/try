@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #vue {
+            width: 500px;
+            margin: 0 auto;
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+            height: 50px;
+            line-height: 50px;
+        }
+
+        .right {
+            float: right;
+        }
+
+        .actived {
+            background: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="vue">
+        <h2>todolist</h2>
+        <hr>
+        <div>
+            名称：<input type="text" placeholder="请输入商品名称" v-model="proName">
+            价格：<input type="number" placeholder="请输入商品价格" v-model="proPrice">
+            <button @click="add()">添加</button>
+        </div>
+        <div>
+            <input type="text" placeholder="请输入商品名称" v-model="proSearch" @keyup="search()">
+            <button @click="search()">搜索</button>
+        </div>
+        <ul>
+            <li v-for="(obj,index) in list" 
+                @click="change(obj)" 
+                :class="{actived:obj.isActived}"
+                v-if="obj.isInclude"
+            >
+                <input type="checkbox" v-model="obj.isActived">
+                <span>{{obj.name}}</span>
+                <div class="right">
+                    <span>{{obj.price}}</span>
+                    <span  @click.stop="delet(index)">[X]</span>
+                </div>
+            </li>
+        </ul>
+        <div>
+            <button @click="deletAll()">删除</button> 
+            <span>总价{{totle()}}</span>
+        </div>
+    </div>
+    <script src="vue.js"></script>
+    <script>
+        new Vue({
+            el: "#vue",
+            data: {
+                list: [
+                    {
+                        name:"iphoneX",
+                        price:4399,
+                        isActived:false,
+                        isInclude:true
+                    },
+                    {
+                        name:"iphone8",
+                        price:3199,
+                        isActived:false,
+                        isInclude:true
+                    },
+                    {
+                        name:"iphone11",
+                        price:8999,
+                        isActived:false,
+                        isInclude:true
+                    },
+                    {
+                        name:"iphone9",
+                        price:5999,
+                        isActived:false,
+                        isInclude:true
+                    }
+                ],
+                proName:"",
+                proPrice:"",
+                proSearch:""
+            },
+            methods: {
+                add(){
+                    this.list.push({
+                        name:this.proName,
+                        price:Number.parseInt(this.proPrice),
+                        isActived:false,
+                        isInclude:true
+                    }),
+                    this.proName="";
+                    this.proPrice="";
+                },
+                change(obj){
+                    obj.isActived = !obj.isActived;
+                },
+                totle(){
+                    let sum = 0;
+                    this.list.forEach(function(obj){
+                        if(obj.isActived){
+                            sum += obj.price;
+                        }
+                    })
+                    return sum;
+                },
+                delet(index){
+                    this.list.splice(index,1);
+                },
+                deletAll(){
+                    var arr = this.list.filter(function(obj,index){
+                            return obj.isActived == false; 
+                    })
+                    // console.log(typeof arr)
+                    this.list = arr;
+                },
+                search(){
+                    this.list.forEach((obj,index)=>{
+                        if(obj.name.includes(this.proSearch)){
+                            obj.isInclude = true;
+                        }else{
+                            obj.isInclude = false; 
+                        }
+                    })
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
