@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="div1">
+        <lllxt c="handsome" d="30W">
+            <div slot="first">
+                <h2>第一个</h2>
+                <a href="http://www.baidu.com" target="blank">百度</a>
+            </div>
+            <div slot="second">
+                <h2>第二个</h2>
+                <a href="http://www.tmall.com" target="blank">天猫</a>
+            </div>
+        </lllxt>
+    </div>
+
+    <template id="fut">
+        <div>
+            <slot name="first"></slot>
+            <hr>
+            <h2>lllxttt is {{c}}</h2>
+            <p @click="fn()">money is {{d}}</p>
+            <hr>
+            <slot name="second"></slot>
+        </div>
+    </template>
+
+    <script src="vue.js"></script>
+    <script>
+        new Vue({
+            el:"#div1",
+            data:{
+
+            },
+            components:{
+                "lllxt":{
+                    template:"#fut",
+                    props:["c","d"],
+                    methods:{
+                        fn(){
+                            this.d = "40W";
+                        }
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+</html>

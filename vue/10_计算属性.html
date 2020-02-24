@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="vue">
+        <p>{{firstName}}</p>
+        <p>{{lastNmae}}</p>
+        <p>{{fullName}}</p>
+        <h2>{{message}}</h2>
+        <h2>{{reversedMessage}}</h2>
+        <!-- <button @click="change()">合并</button> -->
+    </div>
+    <script src="vue.js"></script>
+    <script>
+        new Vue({
+            el:"#vue",
+            data:{
+                firstName:"liu",
+                lastNmae:"xingtao",
+                message:"hello"
+            },
+            computed:{
+                fullName(){
+                    return this.firstName + "-" +this.lastNmae;
+                },
+                reversedMessage(){
+                    return this.message.split("").reverse().join("");
+                }
+            },
+            watch:{
+                firstName:function(newValue,oldValue){
+                    console.log(newValue,oldValue)
+                    // this.fullName = newValue + this.lastName;
+                }
+            }
+        })
+    </script>
+</body>
+</html>
