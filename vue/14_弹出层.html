@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            width: 300px;
+            height: 250px;
+            border: 1px solid #000;
+            margin: 100px auto;
+        }
+        .box-top{
+            height: 40px;
+            line-height: 40px;
+            border-bottom: 1px solid pink;
+        }
+        .exit{
+            float: right;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+        .choose{
+            position: absolute;
+            left: 617px;
+            top: 75px;
+        }
+    </style>
+</head>
+<body>
+    <div id="vue">
+        <div class="choose">
+            <button @click="login()">登录</button>
+            <button @click="regist()">注册</button>
+        </div>
+        <tcc title="登录" v-if="userLogin">
+            <div>
+                用户名：<input type="text">
+            </div>  
+            <div>
+                密码：<input type="number">
+            </div>
+            <button>登录</button>
+        </tcc>
+        <tcc title="注册" v-if="userRegist">
+            <div>
+                用户名：<input type="text">
+            </div>  
+            <div>
+                密码：<input type="number">
+            </div>
+            <div>
+                确认密码：<input type="number">
+            </div>
+            <button>注册</button>
+        </tcc>
+    </div>
+    <template id="temp">
+        <div class="container">
+            <div class="box-top">
+                {{title}}
+                <span class="exit">X</span>
+            </div>
+            <div class="box-bottom">
+                <slot></slot>
+            </div>
+        </div>
+    </template>
+    <script src="vue.js"></script>
+    <script>
+        new Vue({
+            el:"#vue",
+            data:{
+                userLogin:false,
+                userRegist:false
+            },
+            components:{
+                "tcc":{
+                    template:"#temp",
+                    props:["title"]
+                }
+            },
+            methods:{
+                login(){
+                    this.userLogin = true;
+                    this.userRegist = false;
+                },
+                regist(){
+                    this.userRegist = true;
+                    this.userLogin = false;
+                }
+            }
+        })
+    </script>
+</body>
+</html>
