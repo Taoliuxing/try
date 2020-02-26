@@ -1,15 +1,41 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 // import Home from '../views/Home.vue'
+import Home from '../views/Home'
+import Test from '../views/Test'
+import End from '../views/End'
+import Kid from '../views/Kid'
+import Error from '../views/Error'
 
 Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/',
-    name: 'Home',
-    // component: Home
+    // path: '/',
+    component: Home,
+    // redirect:'/home'
+    path:'/home',
+    alias:'/hhh'
   },
+  {
+    path: '/test',
+    component:Test,
+    children:[
+      {
+        path:'kid',
+        component:Kid
+      }
+    ]
+  },
+  {
+    path: '/end/:id/:name',
+    name:"end",
+    component:End
+  },
+  {
+    path:'*',
+    component:Error
+  }
   // {
   //   path: '/about',
   //   name: 'About',
