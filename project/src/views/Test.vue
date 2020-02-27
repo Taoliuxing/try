@@ -1,5 +1,21 @@
 <template>
     <div>
+      <div>
+        {{$store.state.count}}
+      </div>
+      <div>
+        {{$store.state.num}}
+      </div>
+      <div>
+        <!-- <button @click="$store.commit('add',3)">add</button> -->
+        <button @click="add(5)">add</button>
+      </div>
+      <div>
+        getters测试{{addTwo}}
+      </div>
+      <div>
+        <button @click="addAction">actions</button>
+      </div>
         测试页
         <router-link to="/test/kid">Kid</router-link>
         <transition name="kidd">
@@ -9,8 +25,16 @@
 </template>
 
 <script>
+    import {mapState , mapMutations , mapGetters , mapActions} from 'vuex' 
     export default {
-        
+        computed:{
+          ...mapState(['count','num']),
+          ...mapGetters(['addTwo'])
+        },
+        methods:{
+          ...mapMutations(["add"]),
+          ...mapActions(['addAction'])
+        }
     }
 </script>
 

@@ -1,6 +1,7 @@
 <template>
   <div>
     首页
+    {{$store.state.count}}
     <common></common>
     <first-page></first-page>
     <not-common></not-common>
