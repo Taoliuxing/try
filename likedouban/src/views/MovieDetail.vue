@@ -30,7 +30,7 @@ import axios from 'axios'
             .then((res)=>{
                 this.detail = res.data;
                 this.isShow = false;
-                this.allDetail = false;
+                this.allDetail = true;
             }).catch((res)=>{
 
             })
