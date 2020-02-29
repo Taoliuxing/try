@@ -1,7 +1,7 @@
 <template>
     <div>
         <ul class="list-box">
-            <li class="list" v-for="obj in movieList" :key="obj.id">
+            <li class="list" v-for="obj in movieList" :key="obj.id" @click="goDetail(obj.id)">
                 <img :src="obj.images.medium" alt="">
                 <div class="desc-box">
                     <h2>{{obj.title}}</h2>
@@ -18,6 +18,7 @@
                 </div>
             </li>
         </ul>
+        <img class="loading" v-if="isShow" src="../assets/images/loading.gif" alt="">
     </div>
 </template>
 
@@ -26,7 +27,8 @@ import axios from 'axios'
     export default {
         data(){
             return{
-                movieList:[]
+                movieList:[],
+                isShow:true
             }
         },
         created(){
@@ -34,9 +36,15 @@ import axios from 'axios'
             .then((res)=>{
                 console.log(res)
                 this.movieList = res.data.subjects;
+                this.isShow = false;
             }).catch((res)=>{
 
             })
+        },
+        methods:{
+            goDetail(id){
+                this.$router.push({path:'/movie-detail',query:{id}})
+            }
         }
     }
 </script>
@@ -57,5 +65,13 @@ import axios from 'axios'
     }
     .list-box{
         padding:0.2rem;
+    }
+    .loading {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    // width:6rem;
+    width: 1rem;
     }
 </style>
