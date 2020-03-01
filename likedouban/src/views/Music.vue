@@ -1,6 +1,11 @@
 <template>
     <div>
-        <img v-for="music in musicList" :key="music.id" :src="music.bg" alt="">
+        <img 
+        v-for="music in musicList" 
+        :key="music.id"  
+        @click="goDetail(music.id)"
+        :src="music.bg" alt=""
+        >
     </div>
 </template>
 
@@ -19,6 +24,11 @@ import axios from 'axios'
             }).catch((res)=>{
 
             })
+        },
+        methods:{
+            goDetail(id){
+                this.$router.push({path:'/music-detail',query:{id}})
+            }
         }
     }
 </script>
