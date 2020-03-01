@@ -1,12 +1,16 @@
 <template>
     <div>
-        book
+        <swipe></swipe>
     </div>
 </template>
 
 <script>
+    // import axios from 'axios';
+    import Swipe from '../components/Swipe';
     export default {
-        
+        components:{
+            Swipe
+        }
     }
 </script>
 
