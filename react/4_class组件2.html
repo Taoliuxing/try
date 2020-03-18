@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="root"></div>
+    <script src="react.development.js"></script>
+    <script src="react-dom.development.js"></script>
+    <script src="browser.min.js"></script>
+
+    <script type="text/babel">
+        class First extends React.Component{
+            constructor(){
+                super();
+                this.state={
+                    count:1
+                }
+                this.fn=this.fn.bind(this)
+            }
+            fn(){
+                this.setState({
+                    count:this.state.count+1
+                });
+            }
+            render(){
+                return(
+                    <div>
+                        {this.state.count}
+                        <button onClick={this.fn}>add</button>
+                        <p>{this.props.name}_{this.props.age}</p>
+                        <h2>第一个组件</h2>
+                        <p>初识React</p>
+                        {this.props.children}
+                    </div>
+                )
+            }
+        }
+        ReactDOM.render(
+            <First name="lxt" age="19">
+                <div>
+                    <h3>react还行</h3>
+                </div>
+            </First>,
+            document.getElementById('root')
+        )
+    </script>
+</body>
+</html>

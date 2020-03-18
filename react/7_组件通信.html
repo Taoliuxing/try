@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="root"></div>
+    <script src="react.development.js"></script>
+    <script src="react-dom.development.js"></script>
+    <script src="browser.min.js"></script>
+
+    <script type="text/babel">
+    class Father extends React.Component{
+        constructor(){
+            super();
+            this.state = {
+                num1:10,
+                num2:20,
+                msg:0
+            }
+            this.fn = this.fn.bind(this)
+        }
+        fn(num){
+            console.log(num)
+            this.setState({
+                msg:num
+            })
+        }
+        render(){
+            return (
+                <div>
+                    <h2>我是父组件 {this.state.msg}</h2>
+                    <Son num={this.state.num1} fn={this.fn}></Son>
+                    <Son num={this.state.num2} fn={this.fn}></Son>
+                </div>
+            )
+        }
+    }
+    class Son extends React.Component{
+        constructor(){
+            super();
+            this.state={
+
+            }
+        }
+        render(){
+            return(
+                <div>
+                    <hr/>
+                        {this.props.num}
+                        <button onClick={()=>{
+                            this.props.fn(this.props.num);
+                        }}>点击</button>
+                        <h3>我是子组件</h3>
+                </div>
+            )
+        }
+    }
+    ReactDOM.render(
+        <Father></Father>,
+        document.getElementById('root')
+    )
+
+    </script>
+</body>
+</html>

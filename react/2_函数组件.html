@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="root"></div>
+    <script src="react.development.js"></script>
+    <script src="react-dom.development.js"></script>
+    <script src="browser.min.js"></script>
+    <script type="text/babel">
+        /*
+            1 组件名首字母大写
+            2 只能有一个根元素 
+            3 所有标签必须闭合
+        */ 
+        const First=({name,age,children})=>{  //形参为props  是一个对象  直接name,age,children是对其解构
+            return (
+                <div>
+                    <p>{name}_{age}</p>
+                    <h2>第一个组件</h2>
+                    <p>初识React</p>
+                    {children}       
+                </div>
+            )                                //children是接受父元素传过来得值  
+        }
+        ReactDOM.render(
+            <First name="lxt" age="19">
+                <div>
+                    <h3>react还行</h3>
+                </div>
+            </First>,
+            document.getElementById('root')
+        )
+    </script>
+</body>
+</html>
