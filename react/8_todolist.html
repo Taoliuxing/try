@@ -4,6 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        .red{
+            background: red;
+        }
+        li{
+            display: none;
+        }
+        li.show{
+            display: block;
+        }
+    </style>
 </head>
 <body>
     <div id="root"></div>
@@ -15,22 +26,72 @@
             constructor(){
                 super();
                 this.state={
-                    todos:["吃饭","睡觉","敲代码"]
+                    todos:[
+                        {
+                            name:"吃饭",
+                            isActived:false,
+                            isShow:true
+                        },
+                        {
+                            name:"睡觉",
+                            isActived:false,
+                            isShow:true
+                        },
+                        {
+                            name:"打豆豆",
+                            isActived:false,
+                            isShow:true
+                        }
+                    ]
                 }
-                this.addList = this.addList.bind(this)
+                this.addList = this.addList.bind(this);
+                this.changeColor = this.changeColor.bind(this);
+                this.delList = this.delList.bind(this);
+                this.searchList = this.searchList.bind(this);
             }
             addList(val){
                 this.setState({
-                    todos:[...this.state.todos,val]
+                    todos:[...this.state.todos,{name:val,isActived:false,isShow:true}]
+                })
+            }
+            changeColor(index){
+                let todos = [...this.state.todos];
+                todos[index].isActived = !todos[index].isActived
+                this.setState({
+                    todos 
+                })
+            }
+            delList(index){
+                let todos = [...this.state.todos];
+                todos.splice(index,1)
+                this.setState({
+                    todos
+                })
+            }
+            searchList(val){    
+                let todos = [...this.state.todos];
+                todos.forEach((obj,inffex)=>{
+                    if(obj.name.includes(val)){
+                        obj.isShow=true;
+                    }else{
+                        obj.isShow=false;
+                    }
+                })
+                this.setState({
+                    todos
                 })
             }
             render(){
                 return (
                     <div>
                     <h3>ToDoList</h3>
-                    <Search></Search>
+                    <Search searchList={this.searchList}></Search>
                     <Add addList={this.addList}></Add>
-                    <List todos={this.state.todos}></List>
+                    <List 
+                    todos={this.state.todos} 
+                    changeColor={this.changeColor}
+                    delList={this.delList}
+                    ></List>
                     </div>
                     
                 )
@@ -41,8 +102,12 @@
                 return(
                     <div>
                         <label htmlFor="search">搜索:</label>
-                       <input id="search" type="text"/>
-                       <button>搜索</button>
+                        <input 
+                        id="search" 
+                        type="text" 
+                        onChange={(e)=>{
+                            this.props.searchList(e.target.value);
+                        }}/>
                     </div>
                 )
             }
@@ -66,8 +131,23 @@
                 return(
                     <ul>
                         {
-                            this.props.todos.map((val,index)=>{
-                                return <li key={index}>{val}</li>
+                            this.props.todos.map((obj,index)=>{
+                                let isActived = obj.isActived?"red":"";
+                                let isShow = obj.isShow?"show":"";
+                                return (
+                                    <li 
+                                    className={isActived + "" +isShow}
+                                    key={index}
+                                    onClick={()=>{
+                                        this.props.changeColor(index)
+                                    }}>
+                                    {obj.name}
+                                    <button onClick={(e)=>{
+                                        this.props.delList(index);
+                                        e.stopPropagation();
+                                    }}>del</button>
+                                    </li>
+                                )
                             })
                         }
                     </ul>
