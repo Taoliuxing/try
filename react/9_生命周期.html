@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="root"></div>
+    <script src="react.development.js"></script>
+    <script src="react-dom.development.js"></script>
+    <script src="browser.min.js"></script>
+    <script type="text/babel">
+        class Main extends React.Component{
+            constructor(){
+                super();
+                this.state={
+                    msg:'hello~~~~!!!!!1'
+                }
+            }
+            componentWillMount(){
+                console.log('Main componentWillMount');
+            }
+            componentDidMount(){
+                console.log('Main componentDidMount');
+            }
+            shouldComponentUpdate(nprops,nstate){
+                console.log('Main shouldComponentUpdate',nprops,nstate);
+                return true;
+            }
+            componentWillUpdate(){
+                console.log('Main componentWillUpdate',document.getElementsByTagName('h2')[0].innerHTML);
+            }
+            componentDidUpdate(){
+                console.log('Main componentDidUpdate',document.getElementsByTagName('h2')[0].innerHTML);
+            }
+            componentWillUnmount(){
+                console.log('Main componentWillUnmount');
+            }
+            render(){
+                console.log('Main render');
+                return (
+                    <div>
+                        <h2>父组件  {this.state.msg}</h2>
+                        <Child msg={this.state.msg}></Child>
+                        <button onClick={
+                            ()=>{
+                                this.setState({
+                                    msg:'你好！'
+                                })
+                            }
+                        }>click</button>
+                        <button onClick={
+                            ()=>{
+                                ReactDOM.unmountComponentAtNode(document.getElementById('root'));
+                            }
+                        }>卸载</button>
+                    </div>
+                )
+            }
+        }
+        class Child extends React.Component{
+            constructor(){
+                super();
+            }
+            componentWillReceiveProps(){
+                console.log("child componentWillReceiveProps");
+            }
+            shouldComponentUpdate(nprops,nstate){
+                console.log('child shouldComponentUpdate',nprops,nstate);
+                return true;
+            }
+            componentWillUpdate(){
+                console.log('child componentWillUpdate',document.getElementsByTagName('h1')[0].innerHTML);
+            }
+            componentDidUpdate(){
+                console.log('child componentDidUpdate',document.getElementsByTagName('h1')[0].innerHTML);
+            }
+            render(){
+                console.log('child render')
+                return(
+                    <h1>子组件 {this.props.msg}</h1>
+                )
+            }
+        }
+        ReactDOM.render(
+            <Main></Main>,
+            document.getElementById('root')
+        )
+    </script>
+</body>
+</html>
