@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>选项卡复盘</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #container{
+            margin: 100px auto;
+            width: 600px;
+        }
+        #btn-box{
+            list-style: none;
+            overflow: hidden;
+        }
+        #btn-box li{
+            width: 198px;
+            height: 70px;
+            float: left;
+            background: #0f0;
+            border: 1px solid #00f;
+            font-size: 24px;
+            line-height:70px;
+            text-align: center;
+        }
+        #btn-box .actived{
+            background: #f00;
+            color: #fff;
+        }
+        #cont-box div{
+            text-align: center;
+            width: 598px;
+            height: 300px;
+            border: 1px solid #00f;
+            text-align: center;
+            font-size: 40px;
+            line-height: 300px;
+            display: none;
+        }
+        #cont-box .selected{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <ul id="btn-box">
+            <li class="actived">rng</li>
+            <li>ig</li>
+            <li>fpx</li>
+        </ul>
+        <div id="cont-box">
+            <div class="selected">uzi</div>
+            <div>theshy</div>
+            <div>doinb</div>
+        </div>
+    </div>
+    <script>
+        var oUl = document.getElementById('btn-box');
+        var oLi = oUl.getElementsByTagName('li');
+        var oDiv = document.getElementById('cont-box');
+        var oSel = oDiv.getElementsByTagName('div');
+
+        for(var i=0;i<oLi.length;i++){
+            oLi[i].index = i;
+            oLi[i].onclick = function(){
+                for(var j=0;j<oLi.length;j++){
+                    oLi[j].className = "";
+                    oSel[j].className = "";
+                }
+                this.className = "actived";
+                oSel[this.index].className = "selected";
+            }
+        }
+    </script>
+</body>
+</html>

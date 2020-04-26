@@ -18,6 +18,10 @@
                         {
                             title:'电影',
                             path:'/movie'
+                        },
+                        {
+                            title:'测试',
+                            path:'/test'
                         }
                 ]
             }

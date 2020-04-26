@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Movie from '../views/Movie'
+import Test from '../views/Test'
 
 
 Vue.use(VueRouter)
@@ -9,6 +10,10 @@ Vue.use(VueRouter)
   {
     path:'/movie',
     component:Movie
+  },
+  {
+    path:'/test',
+    component:Test
   }
  
 ]

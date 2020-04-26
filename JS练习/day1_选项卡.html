@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>选项卡</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #container{
+            margin: 100px auto;
+            width: 600px;
+        }
+        #lable_button{
+            list-style: none;
+            overflow: hidden;
+        }
+        #lable_button li{
+            float: left;
+            width: 198px;
+            height: 50px;
+            border: 1px solid #000;
+            text-align: center;
+            line-height: 50px;
+            font-size: 20px;
+            background: #008c8c;
+        }
+        #lable_button .actived{
+            background: pink;
+            color: #ffffff;
+        }
+        #detail_container div{
+            width: 598px;
+            height: 300px;
+            border: 1px solid #000;
+            font-size: 30px;
+            line-height: 300px;
+            text-align: center;
+            display: none;
+        }
+        #detail_container .selected{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <ul id="lable_button">
+            <li class="actived">RNG</li>
+            <li>IG</li>
+            <li>FPX</li>
+        </ul>
+        <div id="detail_container">
+            <div class="selected">uzi</div>
+            <div>theshy</div>
+            <div>doinb</div>
+        </div>
+    </div>
+    <script>
+        var oUl = document.getElementById('lable_button');
+        var oLi = oUl.getElementsByTagName('li');        //数组
+        var oDiv = document.getElementById('detail_container');
+        var oSel = oDiv.getElementsByTagName('div');     //数组
+
+        for(var i=0;i<oLi.length;i++){
+            oLi[i].index = i;        //aLi[0].index = 0  aLi[1].idnex = 1 aLi[2].idenx = 2
+            oLi[i].onclick = function(){
+                for(var j=0;j<oLi.length;j++){
+                    oLi[j].className = "";
+                    oSel[j].className = "";
+                }
+                this.className = "actived";
+                oSel[this.index].className = "selected";
+            }
+        }
+    </script>
+</body>
+</html>

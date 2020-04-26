@@ -29,6 +29,7 @@ export default {
   color: #2c3e50;
 }
  .container{
-    margin-top: 10px;
+    margin-top: 100px;
+    margin-bottom: 100px;
   }
 </style>
