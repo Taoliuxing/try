@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>轮播图</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+        }
+        #container{
+            width: 750px;
+            margin: 100px auto;
+            position: relative;
+        }
+        #img-box li{
+            display: none;
+        }
+        #img-box img{
+            display: block;
+        }
+        #img-box .selected{
+            display: block;
+        }
+        #btn-box {
+            position: absolute;
+            right: 0px;
+            bottom: 0px;
+        }
+        #btn-box li{
+            width: 20px;
+            height: 20px;
+            border-radius: 5px;
+            background: rgba(0, 0, 0, 0.5);
+            float: left;
+            margin-right: 3px;
+            text-align: center;
+            line-height: 20px;
+            color: aliceblue;
+            cursor: pointer;
+        }
+        #btn-box .actived{
+            background: #008c8c;
+        }
+        #arrow-box{
+            position: absolute;
+            left: 0;
+            bottom: 0;
+        }
+        #arrow-box li{
+            width: 20px;
+            height: 20px;
+            border-radius: 5px;
+            background: rgba(0, 0, 0, 0.5);
+            float: left;
+            margin-left: 3px;
+            text-align: center;
+            line-height: 20px;
+            color: aliceblue;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <ul id="img-box">
+            <li class="selected">
+                <img src="img/1.jpg" alt="">
+            </li>
+            <li>
+                <img src="img/2.jpg" alt="">
+            </li>
+            <li>
+                <img src="img/3.jpg" alt="">
+            </li>
+            <li>
+                <img src="img/4.jpg" alt="">
+            </li>
+            <li>
+                <img src="img/5.jpg" alt="">
+            </li>
+        </ul>
+        <ul id="btn-box">
+            <li class="actived">1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+        </ul>
+        <ul id="arrow-box">
+            <li id="prev-btn">&lt;</li>
+            <li id="next-btn">&gt;</li>
+        </ul>
+    </div>
+
+    <script>
+        var oContainer = document.getElementById('container');
+        var oImgBox = document.getElementById('img-box');
+        var oImg = oImgBox.getElementsByTagName('li');
+        var oBtn = document.getElementById('btn-box');
+        var oLi = oBtn.getElementsByTagName('li');
+        var oNext = document.getElementById('next-btn');
+        var oPrev = document.getElementById('prev-btn');
+        var iNow = 0;       // 记录当前索引
+        var timer;
+
+        for(var i=0;i<oLi.length;i++){
+            oLi[i].index = i;
+            oLi[i].onclick = function(){
+                change(this.index);
+                iNow = this.index;
+            }
+        }
+        oNext.onclick = function(){
+            iNow++;
+            if(iNow > oLi.length-1){
+                iNow = 0;
+            }
+            change(iNow);
+        } 
+        oPrev.onclick = function(){
+            iNow--;
+            if(iNow < 0){
+                iNow = oLi.length-1;
+            }
+            change(iNow);
+        } 
+        function change(idx){                 // 单独封装成一个功能  与选项卡大体类似 
+            for(var j=0;j<oLi.length;j++){
+                oLi[j].className = "";
+                oImg[j].className = "";
+            }
+            oLi[idx].className = "actived";
+            oImg[idx].className = "selected";
+        }
+        // 定时器 自动换页效果
+        run();
+        oContainer.onmouseover = function(){
+            clearInterval(timer);
+        }
+        oContainer.onmouseout = function(){
+            run();
+        }
+        function run(){
+            timer = setInterval(function(){
+                oNext.onclick();                    //每1500ms 触发oNext点击事件
+            },1500)
+        }
+    </script>
+</body>
+</html>

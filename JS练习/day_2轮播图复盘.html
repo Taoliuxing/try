@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>轮播图复盘</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+        }
+        #container{
+            width: 750px;
+            margin: 100px auto;
+            position: relative;
+        }
+        #img-box li{
+            display: none;
+        }
+        #img-box .actived{
+            display: block;
+        }
+        #img-box img{
+            display: block;
+        }
+        #btn-box{
+            position: absolute;
+            bottom: 0px;
+            right: 0px;
+        }
+        #btn-box li{
+            width: 20px;
+            height: 20px;
+            background: rgba(0,0,0,0.5);
+            border-radius: 5px;
+            float: left;
+            margin-right: 2px;
+            text-align: center;
+            line-height: 20px;
+            color: #fff;
+            cursor: pointer;
+        }
+        #btn-box .selected{
+            background: #008c8c;
+        }
+        #arrow-box{
+            position: absolute;
+            bottom: 0px;
+            left: 0px;
+        }
+        #arrow-box li{
+            width: 20px;
+            height: 20px;
+            background: rgba(0,0,0,0.5);
+            border-radius: 5px;
+            float: left;
+            margin-left: 2px;
+            text-align: center;
+            line-height: 20px;
+            color: #fff;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <ul id="img-box">
+            <li class="actived">
+                <img src="img/1.jpg" alt="">
+            </li>
+            <li>
+                <img src="img/2.jpg" alt="">
+            </li>
+            <li>
+                <img src="img/3.jpg" alt="">
+            </li>
+            <li>
+                <img src="img/4.jpg" alt="">
+            </li>
+            <li>
+                <img src="img/5.jpg" alt="">
+            </li>
+        </ul>
+        <ul id="btn-box">
+            <li class="selected">1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+        </ul>
+        <ul id="arrow-box">
+            <li id="prev-btn">&lt;</li>
+            <li id="next-btn">&gt;</li>
+        </ul>
+    </div>
+    <script>
+        var oContainer = document.getElementById('container');
+        var oBtn = document.getElementById('btn-box');
+        var oLi = oBtn.getElementsByTagName('li');
+        var oImgBox = document.getElementById('img-box');
+        var oImg = oImgBox.getElementsByTagName('li');
+        var oPrev = document.getElementById('prev-btn');
+        var oNext = document.getElementById('next-btn');
+        var iNow = 0;
+        var timer;
+
+        for(var i=0;i<oLi.length;i++){
+            oLi[i].index = i;
+            oLi[i].onclick = function(){
+                change(this.index);
+                iNow = this.index;
+            }
+        }
+        oPrev.onclick = function(){
+            iNow--;
+            if(iNow < 0){
+                iNow = oLi.length-1;
+            }
+            change(iNow);
+        }
+        oNext.onclick = function(){
+            iNow++;
+            if(iNow > oLi.length-1){
+                iNow = 0;
+            }
+            change(iNow);
+        }
+        function change(idx){
+            for(var j=0;j<oLi.length;j++){
+                oLi[j].className = "";
+                oImg[j].className = "";
+            }
+            oLi[idx].className = "selected";
+            oImg[idx].className = "actived";
+        } 
+        run();
+        oContainer.onmouseover = function(){
+            clearInterval(timer);
+        }
+        oContainer.onmouseout = function(){
+            run();
+        }
+        function run(){
+           timer = setInterval(function(){
+                oNext.onclick();
+            },1500)
+        }
+
+    </script>
+</body>
+</html>
