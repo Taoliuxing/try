@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>平移轮播图复盘</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+        }
+        #container{
+            width: 750px;
+            height: 291px;
+            margin: 100px auto;
+            position: relative;
+            overflow: hidden;
+        }
+        #img-box{
+            width: 3750px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            transition: left 1s linear;
+        }
+        #img-box li{
+            float: left;
+            width: 750px;
+        }
+        #btn-box{
+            position: absolute;
+            right: 0;
+            bottom: 0;
+        }
+        #btn-box li{
+            width: 20px;
+            height: 20px;
+            text-align: center;
+            line-height: 20px;
+            font-size: 14px;
+            background: rgba(0,0,0,0.5);
+            color: aliceblue;
+            border-radius: 5px;
+            float: left;
+            margin-right: 2px;
+            cursor: pointer;
+        }
+        #btn-box .actived{
+            background: #008c8c;
+        }
+        #arrow-box{
+            position: absolute;
+            left: 0;
+            bottom: 0;
+        }
+        #arrow-box li{
+            width: 20px;
+            height: 20px;
+            text-align: center;
+            line-height: 20px;
+            font-size: 14px;
+            background: rgba(0,0,0,0.5);
+            color: aliceblue;
+            border-radius: 5px;
+            float: left;
+            margin-left: 2px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <ul id="img-box">
+            <li>
+                <img src="img/1.jpg" alt="">
+            </li>
+            <li>
+                <img src="img/2.jpg" alt="">
+            </li>
+            <li>
+                <img src="img/3.jpg" alt="">
+            </li>
+            <li>
+                <img src="img/4.jpg" alt="">
+            </li>
+            <li>
+                <img src="img/5.jpg" alt="">
+            </li>
+        </ul>
+        <ul id="btn-box">
+            <li class="actived">1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+        </ul>
+        <ul id="arrow-box">
+            <li id="prev-btn">&lt;</li>
+            <li id="next-btn">&gt;</li>
+        </ul>
+    </div>
+    <script>
+        var oBtn = document.getElementById('btn-box');
+        var oLi = oBtn.getElementsByTagName('li');
+        var oImgBox = document.getElementById('img-box');
+        // var oImg = oImgBox.getElementsByTagName('li');
+        var oPrev = document.getElementById('prev-btn');
+        var oNext = document.getElementById('next-btn');
+        var iNow = 0;
+
+        for(var i=0;i<oLi.length;i++){
+            oLi[i].index = i;
+            oLi[i].onclick = function(){
+                change(this.index);
+                iNow = this.index;
+            }
+        }
+        oNext.onclick = function(){
+            iNow++;
+            if(iNow > oLi.length-1){
+                iNow = 0;
+            }
+            change(iNow);
+        }
+        oPrev.onclick = function(){
+            iNow--;
+            if(iNow < 0){
+                iNow = oLi.length-1;
+            }
+            change(iNow);
+        }
+        function change(idx){
+            for(var j=0;j<oLi.length;j++){
+                oLi[j].className = "";
+            }
+            oLi[idx].className = "actived";
+            oImgBox.style.left = -idx*750 + "px";
+        }
+    </script>
+</body>
+</html>
