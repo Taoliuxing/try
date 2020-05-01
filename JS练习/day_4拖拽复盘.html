@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>拖拽复盘</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #container{
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            background: #008c8c;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="container"></div>
+    <script>
+        var oDiv = document.getElementById('container');
+
+        oDiv.onmousedown = function(e){
+            e = e || window.event;
+
+            var iLeft = e.clientX - oDiv.offsetLeft;
+            var iTop = e.clientY - oDiv.offsetTop;
+
+            document.onmousemove = function(e){
+                e = e || window.event;
+                oDiv.style.left = e.clientX - iLeft + "px";
+                oDiv.style.top = e.clientY - iTop + "px";
+            }
+            oDiv.onmouseup = function(){
+                document.onmousemove = null;
+            }
+        }
+    </script>
+</body>
+</html>
